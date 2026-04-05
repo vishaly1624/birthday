@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Someone Special 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 💖 HEARTS -->
+<div class="hearts"></div>
+
+<!-- 🔐 PASSWORD SCREEN -->
+<section class="lock" id="lock">
+  <h2>🔐 Enter Secret Code 💖</h2>
+  <input type="password" id="password" placeholder="Enter password...">
+  <button onclick="checkPassword()">Unlock Your Gift 💌</button>
+  <p id="error"></p>
+</section>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎉 HERO -->
+<section class="hero hidden" id="hero">
+  <h1 class="hero-title" id="heroTitle"></h1>
+
+  <p class="sub">A special surprise just for you 💕</p>
+
+  <p id="typeText"></p>
+
+  <button onclick="start()">Open Your Surprise 💝</button>
+</section>
+
+<!-- 🎬 VIEWER -->
+<section class="viewer hidden" id="viewer">
+  <div class="card-container">
+
+    <div class="img-box">
+      <img id="slideImg">
+    </div>
+
+    <div class="content-box">
+      <p id="slideText"></p>
+      <button onclick="nextSlide()">Next 💌</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🎊 FINAL -->
+<section class="final hidden" id="finalPage">
+  <h1>🎉 Happy Birthday My Love 🎂</h1>
+  <p>You are my everything ❤️</p>
+  <button onclick="restart()">Again 💖</button>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

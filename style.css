@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* 🔐 LOCK SCREEN */
+.lock {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  padding: 20px;
+  text-align: center;
+}
+
+.lock input {
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  width: 80%;
+  max-width: 250px;
+  text-align: center;
+}
+
+.lock button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: #ff4ecd;
+  color: white;
+}
+
+#error {
+  color: yellow;
+  font-size: 14px;
+}
+
+/* 🌈 SECTIONS */
+.hero,
+.viewer,
+.final {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* HERO */
+.hero {
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(135deg, #ff9a9e, #a18cd1);
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.sub {
+  font-size: 14px;
+}
+
+/* TYPE */
+#typeText {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* BUTTON */
+button {
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(45deg, #ff4ecd, #ff758c);
+  color: white;
+}
+
+/* VIEWER */
+.viewer {
+  padding: 10px;
+  background: linear-gradient(135deg, #ff758c, #6a11cb);
+}
+
+.card-container {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 25px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 0 30px rgba(255, 120, 180, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+
+  height: 90vh;
+}
+
+/* IMAGE */
+/* 🎬 IMAGE BOX (CINEMATIC) */
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🌫️ BLUR BACKGROUND */
+.img-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(30px) brightness(0.5);
+  transform: scale(1.3);
+
+  z-index: 0;
+}
+
+/* 🖼️ MAIN IMAGE */
+.img-box img {
+  position: relative;
+  z-index: 2;
+
+  max-width: 90%;
+  max-height: 90%;
+
+  object-fit: contain;
+
+  border-radius: 20px;
+
+  /* 💖 glow border */
+  box-shadow:
+    0 0 20px rgba(255, 78, 205, 0.5),
+    0 10px 40px rgba(0, 0, 0, 0.5);
+
+  transition: all 0.5s ease;
+
+  animation: zoomEffect 6s ease-in-out infinite alternate;
+}
+
+.img-box img:hover {
+  transform: scale(1.25);
+}
+
+/* 🔍 ZOOM ANIMATION */
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1.2) translateY(-10px);
+  }
+}
+
+/* CONTENT */
+.content-box {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+#slideText {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 90%;
+  text-align: center;
+}
+
+.content-box button {
+  padding: 12px 30px;
+  border-radius: 50px;
+
+  background: linear-gradient(45deg, #ff4ecd, #ff758c);
+
+  box-shadow:
+    0 0 10px rgba(255, 78, 205, 0.6),
+    0 0 20px rgba(255, 120, 180, 0.4);
+
+  transition: 0.3s;
+
+  animation: floatBtn 2s ease-in-out infinite; /* 🔥 */
+}
+
+@keyframes floatBtn {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.content-box button:hover {
+  transform: scale(1.1);
+}
+
+
+/* FINAL */
+.final {
+  flex-direction: column;
+  background: linear-gradient(135deg, #ff758c, #ffb199);
+}
+
+/* 💖 HEARTS */
+.hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* 📱 TABLET */
+@media (min-width: 768px) {
+  .card-container {
+    flex-direction: row;
+    height: 450px;
+  }
+
+  .img-box {
+    flex: 1;
+    height: 100%;
+  }
+
+  .content-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* 🚫 HIDDEN */
+.hidden {
+  display: none;
+}
+
+/* 🎯 HERO TITLE FIX */
+.hero-title {
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+
+  font-size: clamp(2rem, 6vw, 3.5rem);
+
+  padding: 0 15px;
+}
+
+/* 💖 NAME STYLING */
+.name {
+  color: #ffffff;
+
+  font-weight: 900;
+
+  text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #ff4ecd,
+    0 0 30px #ff758c;
+
+  animation: glowWhite 2s infinite alternate;
+}
+
+@keyframes glowWhite {
+  from {
+    text-shadow:
+      0 0 8px #fff,
+      0 0 15px #ff4ecd;
+  }
+
+  to {
+    text-shadow:
+      0 0 15px #fff,
+      0 0 30px #ff758c,
+      0 0 40px #ff4ecd;
+  }
+}
+
+.hero-title::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* 📱 EXTRA MOBILE FIX */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .sub {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}
