@@ -27,7 +27,7 @@ function checkPassword() {
 
 /* ================= 💖 TITLE TYPEWRITER ================= */
 
-const fullTitle = "🎊❤️🎂 Happy Birthday Anshika ❤️🎂🎊";
+const fullTitle = "🎊❤️🎂 Happy Birthday Mera Baccha 🎂❤️🎊";
 
 let tIndex = 0;
 
@@ -47,8 +47,8 @@ function typeTitle() {
     heroTitle.innerHTML = heroTitle.innerText
       .replace("Happy Birthday", "Happy Birthday<br>")
       .replace(
-        "Anshika",
-        '<span class="name">Anshika</span>'
+        "Mera Baccha",
+        '<span class="name">cutieee</span>'
       );
   }
 }
